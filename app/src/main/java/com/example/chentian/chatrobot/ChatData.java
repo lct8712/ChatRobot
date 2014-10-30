@@ -7,11 +7,11 @@ public class ChatData {
 
   private String text;
 
-  private boolean isSent;
+  private boolean isClient;
 
-  public ChatData(String text, boolean isSent) {
+  public ChatData(String text, boolean isClient) {
     this.text = text;
-    this.isSent = isSent;
+    this.isClient = isClient;
   }
 
   public String getText() {
@@ -22,11 +22,11 @@ public class ChatData {
     this.text = text;
   }
 
-  public boolean isSent() {
-    return isSent;
+  public boolean isClient() {
+    return isClient;
   }
 
-  public void setSent(boolean isSent) {
-    this.isSent = isSent;
+  public void setClient(boolean isSent) {
+    this.isClient = isSent;
   }
 }

@@ -1,13 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:id="@+id/layoutChatItem"
+              android:orientation="horizontal"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <TextView
-            android:id="@+id/txtContent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+    <LinearLayout
+            android:id="@+id/itemWrapper"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
+
+        <ImageView
+                android:id="@+id/imageServiceAvatar"
+                android:background="@drawable/custom_service"
+                android:contentDescription="@string/avatar"
+                android:layout_width="@dimen/avatar_size"
+                android:layout_height="@dimen/avatar_size"/>
+
+        <TextView
+                android:id="@+id/txtContent"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        <ImageView
+                android:id="@+id/imageClientAvatar"
+                android:background="@drawable/client"
+                android:contentDescription="@string/avatar"
+                android:layout_width="@dimen/avatar_size"
+                android:layout_height="@dimen/avatar_size"/>
+
+    </LinearLayout>
 
 </LinearLayout>
