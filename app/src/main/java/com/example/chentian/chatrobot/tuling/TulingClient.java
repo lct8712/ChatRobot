@@ -38,8 +38,12 @@ public class TulingClient extends AsyncTask<String, Void, TulingApiResult> {
     RestAdapter restAdapter = new RestAdapter.Builder()
             .setEndpoint(API_URL).build();
 
-    Tuling tuling = restAdapter.create(Tuling.class);
-    return tuling.fetch(API_KEY, params[0]);
+    try {
+      Tuling tuling = restAdapter.create(Tuling.class);
+      return tuling.fetch(API_KEY, params[0]);
+    } catch (Throwable e) {
+      return new TulingApiResult();
+    }
   }
 
   @Override
