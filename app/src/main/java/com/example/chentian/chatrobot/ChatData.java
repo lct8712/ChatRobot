@@ -2,6 +2,8 @@ package com.example.chentian.chatrobot;
 
 import java.util.Calendar;
 
+import com.example.chentian.chatrobot.tuling.TulingApiResult;
+
 /**
  * Model of a chat item
  *
@@ -15,11 +17,25 @@ public class ChatData {
 
   private Calendar calendar;
 
-  private String timeText;
+  private String tipText;
 
-  public ChatData(String content, boolean isClient) {
+  /**
+   * Client chat item
+   * @param content Message user sent
+   */
+  public ChatData(String content) {
     this.content = content;
-    this.isClient = isClient;
+    this.isClient = true;
+    this.calendar = Calendar.getInstance();
+  }
+
+  /**
+   * Server chat item
+   * @param result Response from server
+   */
+  public ChatData(TulingApiResult result) {
+    this.content = result.getText();
+    this.isClient = false;
     this.calendar = Calendar.getInstance();
   }
 
@@ -47,11 +63,11 @@ public class ChatData {
     this.calendar = calendar;
   }
 
-  public String getTimeText() {
-    return timeText;
+  public String getTipText() {
+    return tipText;
   }
 
-  public void setTimeText(String timeText) {
-    this.timeText = timeText;
+  public void setTipText(String tipText) {
+    this.tipText = tipText;
   }
 }

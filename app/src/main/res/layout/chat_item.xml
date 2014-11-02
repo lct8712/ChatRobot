@@ -9,6 +9,7 @@
             android:id="@+id/txtTime"
             android:gravity="center_horizontal"
             android:visibility="gone"
+            android:textColor="@color/tip_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 

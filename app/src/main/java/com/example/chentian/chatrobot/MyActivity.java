@@ -32,7 +32,7 @@ public class MyActivity extends Activity implements TulingClient.Listener {
       return;
     }
 
-    chatInfoAdapter.add(new ChatData(content, true));
+    chatInfoAdapter.add(new ChatData(content));
     txtSendContent.setText("");
 
     TulingClient client = new TulingClient(this);
@@ -41,6 +41,6 @@ public class MyActivity extends Activity implements TulingClient.Listener {
 
   @Override
   public void onDataFetched(TulingApiResult result) {
-    chatInfoAdapter.add(new ChatData(result.getText(), false));
+    chatInfoAdapter.add(new ChatData(result));
   }
 }

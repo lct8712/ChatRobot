@@ -2,9 +2,8 @@
 <resources>
 
     <string name="app_name">ChatRobot</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
-    <string name="send">发送</string>
+    <string name="send">Send</string>
     <string name="avatar">avatar</string>
+    <string name="send_failed">Message sent failed.</string>
 
 </resources>

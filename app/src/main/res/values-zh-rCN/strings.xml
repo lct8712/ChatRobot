@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">聊天机器人</string>
+    <string name="send">发送</string>
+    <string name="avatar">头像</string>
+    <string name="send_failed">信息发送失败。</string>
+
+</resources>

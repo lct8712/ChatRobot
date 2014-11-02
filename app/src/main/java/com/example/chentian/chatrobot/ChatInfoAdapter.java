@@ -34,7 +34,11 @@ public class ChatInfoAdapter extends BaseAdapter {
   }
 
   public void add(ChatData chatData) {
-    setChatTimeText(chatData);
+    if (TextUtils.isEmpty(chatData.getContent())) {
+      chatData.setTipText(this.context.getResources().getString(R.string.send_failed));
+    } else {
+      setChatTimeText(chatData);
+    }
     dataList.add(chatData);
     notifyDataSetChanged();
   }
@@ -80,13 +84,15 @@ public class ChatInfoAdapter extends BaseAdapter {
       avatarService.setVisibility(View.VISIBLE);
       itemWrapper.setGravity(Gravity.START);
     }
+    boolean isSuccess = !TextUtils.isEmpty(chatData.getContent());
+    itemWrapper.setVisibility(isSuccess ? View.VISIBLE : View.GONE);
 
-    TextView timeTextView = (TextView) convertView.findViewById(R.id.txtTime);
-    if (!TextUtils.isEmpty(chatData.getTimeText())) {
-      timeTextView.setText(chatData.getTimeText());
-      timeTextView.setVisibility(View.VISIBLE);
+    TextView tipTextView = (TextView) convertView.findViewById(R.id.txtTime);
+    if (!TextUtils.isEmpty(chatData.getTipText())) {
+      tipTextView.setText(chatData.getTipText());
+      tipTextView.setVisibility(View.VISIBLE);
     } else {
-      timeTextView.setVisibility(View.GONE);
+      tipTextView.setVisibility(View.GONE);
     }
 
     return convertView;
@@ -98,14 +104,14 @@ public class ChatInfoAdapter extends BaseAdapter {
    */
   private void setChatTimeText(ChatData chatData) {
     if (dataList.isEmpty()) {
-      chatData.setTimeText(Util.formatDateTime(chatData.getCalendar()));
+      chatData.setTipText(Util.formatDateTime(chatData.getCalendar()));
       return;
     }
 
     Calendar latestTime = dataList.get(dataList.size() - 1).getCalendar();
     latestTime.add(Calendar.MINUTE, CHAT_TIME_TEXT_THRESHOLD_MINUTE);
     if (chatData.getCalendar().after(latestTime)) {
-      chatData.setTimeText(Util.formatDateTime(chatData.getCalendar()));
+      chatData.setTipText(Util.formatDateTime(chatData.getCalendar()));
     }
   }
 }

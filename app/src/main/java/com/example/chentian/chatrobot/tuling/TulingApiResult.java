@@ -10,6 +10,8 @@ public class TulingApiResult {
 
   public class TypeCode {
 
+    public static final int FAILED = -1;
+
     public static final int TEXT = 100000;
 
     public static final int LINK = 200000;
@@ -20,6 +22,10 @@ public class TulingApiResult {
 
     public static final int APP = 304000;
 
+  }
+
+  public TulingApiResult(int code) {
+    this.code = code;
   }
 
   private int code;
