@@ -7,6 +7,8 @@ import retrofit.http.GET;
 import retrofit.http.Query;
 
 /**
+ * Rest API fetcher for tuling api, using retrofit library
+ *
  * @author chentian
  */
 public class TulingClient extends AsyncTask<String, Void, TulingApiResult> {

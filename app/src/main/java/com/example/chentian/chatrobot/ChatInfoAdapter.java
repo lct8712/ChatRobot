@@ -1,9 +1,11 @@
 package com.example.chentian.chatrobot;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,9 +16,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 /**
+ * Adapter of chat list
+ *
  * @author chentian
  */
 public class ChatInfoAdapter extends BaseAdapter {
+
+  private static final int CHAT_TIME_TEXT_THRESHOLD_MINUTE = 3;
 
   private List<ChatData> dataList;
 
@@ -28,6 +34,7 @@ public class ChatInfoAdapter extends BaseAdapter {
   }
 
   public void add(ChatData chatData) {
+    setChatTimeText(chatData);
     dataList.add(chatData);
     notifyDataSetChanged();
   }
@@ -59,19 +66,46 @@ public class ChatInfoAdapter extends BaseAdapter {
     ImageView avatarService = (ImageView) convertView.findViewById(R.id.imageServiceAvatar);
 
     ChatData chatData = dataList.get(position);
-    textView.setText(chatData.getText());
+    textView.setText(chatData.getContent());
     if (chatData.isClient()) {
       textView.setBackgroundResource(R.drawable.pop_right);
+      textView.setGravity(Gravity.END | Gravity.CENTER_VERTICAL);
       avatarClient.setVisibility(View.VISIBLE);
       avatarService.setVisibility(View.GONE);
       itemWrapper.setGravity(Gravity.END);
     } else {
       textView.setBackgroundResource(R.drawable.pop_left);
+      textView.setGravity(Gravity.START | Gravity.CENTER_VERTICAL);
       avatarClient.setVisibility(View.GONE);
       avatarService.setVisibility(View.VISIBLE);
       itemWrapper.setGravity(Gravity.START);
     }
 
+    TextView timeTextView = (TextView) convertView.findViewById(R.id.txtTime);
+    if (!TextUtils.isEmpty(chatData.getTimeText())) {
+      timeTextView.setText(chatData.getTimeText());
+      timeTextView.setVisibility(View.VISIBLE);
+    } else {
+      timeTextView.setVisibility(View.GONE);
+    }
+
     return convertView;
+  }
+
+  /**
+   * Set time info of each chat item
+   * Only displayed when time interval of current and latest time is bigger then 3 minutes
+   */
+  private void setChatTimeText(ChatData chatData) {
+    if (dataList.isEmpty()) {
+      chatData.setTimeText(Util.formatDateTime(chatData.getCalendar()));
+      return;
+    }
+
+    Calendar latestTime = dataList.get(dataList.size() - 1).getCalendar();
+    latestTime.add(Calendar.MINUTE, CHAT_TIME_TEXT_THRESHOLD_MINUTE);
+    if (chatData.getCalendar().after(latestTime)) {
+      chatData.setTimeText(Util.formatDateTime(chatData.getCalendar()));
+    }
   }
 }

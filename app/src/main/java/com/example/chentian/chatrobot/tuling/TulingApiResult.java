@@ -1,6 +1,9 @@
 package com.example.chentian.chatrobot.tuling;
 
 /**
+ * Model of tuling api response
+ * <a href="http://www.tuling123.com/openapi/cloud/access_api.jsp#responseParam">Tuling api response</a>
+ *
  * @author chentian
  */
 public class TulingApiResult {
