@@ -4,6 +4,34 @@
     <string name="app_name">聊天机器人</string>
     <string name="send">发送</string>
     <string name="avatar">头像</string>
+    <string name="extra_icon">图片</string>
     <string name="send_failed">信息发送失败。</string>
+    <string name="server_error">服务器异常。</string>
+
+    <string name="extra_type_novel">小说</string>
+    <string name="extra_type_news">新闻</string>
+    <string name="extra_type_app">应用·软件·下载</string>
+    <string name="extra_type_train">列车</string>
+    <string name="extra_type_flight">航班</string>
+    <string name="extra_type_groupon">团购</string>
+    <string name="extra_type_discount">优惠·电影</string>
+    <string name="extra_type_hotel">酒店</string>
+    <string name="extra_type_lottery">彩票</string>
+    <string name="extra_type_price">价格</string>
+    <string name="extra_type_restaurant">餐厅</string>
+
+    <string name="extra_content_pattern_novel" formatted="false">作者：%s</string>
+    <string name="extra_content_pattern_news" formatted="false">来源：%s</string>
+    <string name="extra_content_pattern_app" formatted="false">下载量：%s</string>
+    <string name="extra_content_pattern_train" formatted="false">起始站：%s&lt;br/&gt;到达站：%s&lt;br/&gt;开车时间：%s&lt;br/&gt;到达时间：%s</string>
+    <string name="extra_content_pattern_flight" formatted="false">航班路线：%s&lt;br/&gt;起飞时间：%s&lt;br/&gt;到达时间：%s&lt;br/&gt;航班状态：%s</string>
+    <string name="extra_content_pattern_groupon" formatted="false">详情：%s&lt;br/&gt;价格：%s&lt;br/&gt;参团数量：%s</string>
+    <string name="extra_content_pattern_discount" formatted="false">详情：%s</string>
+    <string name="extra_content_pattern_hotel" formatted="false">价格：%s&lt;br/&gt;满意度：%s&lt;br/&gt;数量：%s</string>
+    <string name="extra_content_pattern_lottery" formatted="false">详情：%s</string>
+    <string name="extra_content_pattern_price" formatted="false">价格：%s&lt;br/&gt;详情：%s</string>
+    <string name="extra_content_pattern_restaurant" formatted="false">价格：%s&lt;br/&gt;详情：%s</string>
+    
+    <string name="extra_content_pattern_more" formatted="false">&lt;br/&gt;&lt;a href="%s"&gt;查看更多&lt;/a&gt;</string>
 
 </resources>

@@ -4,6 +4,20 @@
     <string name="app_name">ChatRobot</string>
     <string name="send">Send</string>
     <string name="avatar">avatar</string>
+    <string name="extra_icon">icon</string>
     <string name="send_failed">Message sent failed.</string>
+    <string name="server_error">Server error.</string>
+
+    <string name="extra_type_app">App ·</string>
+    <string name="extra_type_discount">Discount, Movie ·</string>
+    <string name="extra_type_flight">Flight ·</string>
+    <string name="extra_type_groupon">Goupon ·</string>
+    <string name="extra_type_hotel">Hotel ·</string>
+    <string name="extra_type_lottery">Lottery ·</string>
+    <string name="extra_type_novel">Novel ·</string>
+    <string name="extra_type_news">News ·</string>
+    <string name="extra_type_price">Price ·</string>
+    <string name="extra_type_restaurant">Restaurant ·</string>
+    <string name="extra_type_train">Train ·</string>
 
 </resources>

@@ -5,4 +5,16 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="extra_type">
+        <item name="android:gravity">start|center_vertical</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">@dimen/header_text_size</item>
+    </style>
+
+    <style name="extra_header">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">@dimen/header_text_size</item>
+    </style>
+
 </resources>

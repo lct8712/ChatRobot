@@ -18,7 +18,7 @@ public class TulingClientTest extends ApplicationTestCase<Application> {
     TulingClient client = new TulingClient(new TulingClient.Listener() {
       @Override
       public void onDataFetched(TulingApiResult result) {
-        Assert.assertTrue(result.getCode() == TulingApiResult.TypeCode.TEXT);
+        Assert.assertTrue(result.getCode() != TulingApiResult.TypeCode.FAILED);
         Assert.assertTrue(!TextUtils.isEmpty(result.getText()));
         System.out.println(result);
       }

@@ -6,7 +6,7 @@
               android:layout_height="match_parent">
 
     <TextView
-            android:id="@+id/txtTime"
+            android:id="@+id/txtTip"
             android:gravity="center_horizontal"
             android:visibility="gone"
             android:textColor="@color/tip_text"
@@ -14,9 +14,9 @@
             android:layout_height="wrap_content"/>
 
     <LinearLayout
-            android:id="@+id/itemWrapper"
+            android:id="@+id/chatTextLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
         <ImageView
@@ -39,5 +39,60 @@
                 android:layout_height="@dimen/avatar_size"/>
 
     </LinearLayout>
+
+    <RelativeLayout
+            android:id="@+id/extraInfoLayout"
+            android:layout_width="match_parent"
+            android:layout_margin="@dimen/extra_info_margin"
+            android:background="@drawable/extra_info_background"
+            android:layout_height="@dimen/extra_info_height">
+
+        <TextView
+                android:id="@+id/txtExtraType"
+                style="@style/extra_type"
+                android:layout_marginLeft="@dimen/extra_header_margin"
+                android:layout_marginStart="@dimen/extra_header_margin"
+                android:layout_alignParentTop="true"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/extra_header_height"/>
+
+        <View
+                android:layout_width="match_parent"
+                android:id="@+id/extraHeaderBorder"
+                android:layout_below="@+id/txtExtraType"
+                android:background="@color/extra_info_border"
+                android:layout_height="@dimen/extra_info_border"/>
+
+        <ImageView
+                android:id="@+id/extraIcon"
+                android:layout_below="@+id/extraHeaderBorder"
+                android:layout_marginTop="@dimen/extra_icon_margin"
+                android:layout_marginLeft="@dimen/extra_icon_margin"
+                android:layout_marginStart="@dimen/extra_icon_margin"
+                android:contentDescription="@string/extra_icon"
+                android:layout_width="@dimen/extra_icon_size"
+                android:layout_height="@dimen/extra_icon_size"/>
+
+        <TextView
+                android:id="@+id/txtExtraTitle"
+                style="@style/extra_header"
+                android:layout_below="@+id/extraHeaderBorder"
+                android:layout_toRightOf="@+id/extraIcon"
+                android:layout_toEndOf="@+id/extraIcon"
+                android:layout_marginTop="@dimen/extra_title_margin"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/extra_header_height"/>
+
+        <TextView
+                android:id="@+id/txtExtraContent"
+                android:layout_below="@+id/txtExtraTitle"
+                android:layout_toRightOf="@+id/extraIcon"
+                android:layout_toEndOf="@+id/extraIcon"
+                android:layout_marginLeft="@dimen/extra_icon_margin"
+                android:layout_marginStart="@dimen/extra_icon_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
 
 </LinearLayout>

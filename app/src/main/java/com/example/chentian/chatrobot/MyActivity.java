@@ -7,8 +7,12 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.chentian.chatrobot.data.ChatDataClient;
+import com.example.chentian.chatrobot.data.ChatDataServer;
 import com.example.chentian.chatrobot.tuling.TulingApiResult;
 import com.example.chentian.chatrobot.tuling.TulingClient;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 
 public class MyActivity extends Activity implements TulingClient.Listener {
@@ -19,6 +23,10 @@ public class MyActivity extends Activity implements TulingClient.Listener {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_my);
+
+    // Create global configuration and initialize ImageLoader with this config
+    ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(this).build();
+    ImageLoader.getInstance().init(config);
 
     ListView listViewChat = (ListView) findViewById(R.id.listChatContent);
     chatInfoAdapter = new ChatInfoAdapter(this);
@@ -32,7 +40,7 @@ public class MyActivity extends Activity implements TulingClient.Listener {
       return;
     }
 
-    chatInfoAdapter.add(new ChatData(content));
+    chatInfoAdapter.add(new ChatDataClient(content));
     txtSendContent.setText("");
 
     TulingClient client = new TulingClient(this);
@@ -41,6 +49,6 @@ public class MyActivity extends Activity implements TulingClient.Listener {
 
   @Override
   public void onDataFetched(TulingApiResult result) {
-    chatInfoAdapter.add(new ChatData(result));
+    chatInfoAdapter.add(new ChatDataServer(result));
   }
 }
